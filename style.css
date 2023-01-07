@@ -13,3 +13,7 @@ background-size: cover;
     float: right;
     border: 1px solid white;
 }
+canvas{
+    border: 5px solid white;
+    border-radius: 20px;
+}
