@@ -1,4 +1,6 @@
-
+rightWristX = 0;
+rightWristY = 0;
+rightWristscore = 0;
 /*created by prashant shukla */
 
 var paddle2 =10,paddle1=10;
@@ -29,13 +31,14 @@ function setup(){
   video.size(700,600);
   video.hide();
   poseNet = ml5.posenet(video,modelloaded);
+  poseNet.on('pose', gotposes);
 }
 
 
 function draw(){
-
+ if
  background(0); 
-  Image(video,0,0,700,600);
+  image(video,0,0,700,600);
 
  fill("black");
  stroke("black");
@@ -173,4 +176,12 @@ function paddleInCanvas(){
 
 function modelloaded(){
   console.log("Model is Loaded!")
+}
+function gotposes(results){
+  if(results.length > 0){
+    rightWristX = results[0].pose.rightwrist.x;
+    rightWristY = results[0].pose.y;
+
+
+  }
 }
